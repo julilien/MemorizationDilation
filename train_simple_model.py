@@ -104,7 +104,6 @@ def trainer(args, model, trainloader, valloader, epoch_id, criterion, optimizer,
 
 
 def train(args, model, trainloader, valloader, testloader, num_classes, val_prefix="test", force_retrain=False):
-    # is_binary = num_classes in [1, 2]
     is_binary = False
 
     criterion = make_criterion(args, num_classes, is_binary=is_binary)
@@ -137,8 +136,6 @@ def train(args, model, trainloader, valloader, testloader, num_classes, val_pref
     return test_val_acc
 
 
-# Idea: Train models and evaluate on validation data
-# Then manually use best parameters to train the final model and evaluate it => no model saving before that
 def main():
     args = parse_train_args()
     if args.val_split_prop == 0.0:
@@ -164,8 +161,6 @@ def main():
     if valloader is not None:
         logging.debug("Validation data #: {}".format(len(valloader)))
     logging.debug("Test data #: {}".format(len(testloader)))
-
-    # Save instances together with their class assignments (as they incorporate noise)
 
     if args.model == "MLP":
         if args.fourclass_twofeatures:

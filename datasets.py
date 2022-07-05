@@ -144,7 +144,6 @@ def make_selected_dataset(args, dataset_name, data_dir, batch_size=128, sample_s
 
         torch.manual_seed(args.seed)
 
-        torch.manual_seed(args.seed)
         shuffled_idxs = torch.randperm(trainset.data.shape[0])
         trainset.data = trainset.data[shuffled_idxs]
         trainset.targets = trainset.targets[shuffled_idxs]
@@ -208,14 +207,13 @@ def make_selected_dataset(args, dataset_name, data_dir, batch_size=128, sample_s
     if sample_size is not None:
         trainloader = subsample_data(trainset, val_split_prop, num_classes, sample_size, batch_size,
                                      num_workers=num_workers)
-
     else:
         if val_split_prop is not None:
             trainloader, validation_loader = split_train_and_val_data(trainset, args, shuffle=shuffle_val_data)
         else:
-            trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=4)
+            trainloader = DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
 
-    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=4)
+    testloader = DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
     return trainloader, validation_loader, testloader, num_classes
 
@@ -357,7 +355,7 @@ def make_reproducible_dataset(args, save_path, val_split_prop=None, label_noise=
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
 
-    trainset, testset, num_classes = get_dataset(args.dataset, args.data_dir, args.SOTA)
+    trainset, testset, num_classes = get_dataset(args.dataset, args.data_dir)
 
     validation_loader = None
 
