@@ -1,16 +1,19 @@
 # Memorization-Dilation: Modeling Neural Collapse Under Noise
 
-This repository contains an implementation of _Memorization-Dilation: Modeling Neural Collapse Under Noise_. Cite this work as follows:
+This repository contains an implementation of _Memorization-Dilation: Modeling Neural Collapse Under Noise_ published at ICLR 2023. Cite this work as follows:
 
 ```
-@article{https://doi.org/10.48550/arxiv.2206.05530,
-  author = {Nguyen, Duc Anh and Levie, Ron and Lienen, Julian and Kutyniok, Gitta and Hüllermeier, Eyke},
-  title = {Memorization-Dilation: Modeling Neural Collapse Under Noise},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {Creative Commons Attribution 4.0 International},
-  doi = {10.48550/ARXIV.2206.05530},
-  url = {https://arxiv.org/abs/2206.05530}
+@inproceedings{DBLP:conf/iclr/NguyenLLHK23,
+  author       = {Duc Anh Nguyen and
+                  Ron Levie and
+                  Julian Lienen and
+                  Eyke H{\"{u}}llermeier and
+                  Gitta Kutyniok},
+  title        = {Memorization-Dilation: Modeling Neural Collapse Under Noise},
+  booktitle    = {The Eleventh International Conference on Learning Representations,
+                  {ICLR} 2023, Kigali, Rwanda, May 1-5, 2023},
+  publisher    = {OpenReview.net},
+  year         = {2023}
 }
 ```
 
